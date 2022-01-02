@@ -49,3 +49,19 @@ For this project, we will need four dimension tables and one fact table. They ar
 # Submiting job to spark submit in cluser mode:
 spark-submit --class ATM_ETL --master yarn --deploy-mode cluster atmETL.jar /user/itv000943/atm/atmData.csv /user/itv000943/atmETL_output
 
+# Loading data to MySQL using Sqoop:
+creating Location dinemsion Table:
+
+create table itv000943_Din_Location
+    -> ( location_id Bigint,
+    -> location varchar(50),
+    -> streatname varchar(255),
+    -> street_number int,
+    -> zipcode int, 
+    -> lat Decimal(10,3),
+    -> lon Decimal(10,3),
+    -> Primary key (location_id));
+    
+Loading Data: 
+sqoop export --connect "jdbc:mysql://ms.itversity.com:3306/retail_export" --username retail_user --password itversity --table itv000943_Din_Location --export-dir /user/itv000943/atmETL_output/ATM_Data_location/part-00000-3bf87172-d01d-4b7d-8633-937c0b3e6338-c000.csv --fields-terminated-by ","
+

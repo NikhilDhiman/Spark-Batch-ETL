@@ -30,7 +30,10 @@ object ATM_ETL {
     spark.close()
   }
   
-  
+  /*
+  Responsibilities:- This functions loads the data into dataframe and after processing, save the resultent dataframe to output directory.
+  Parameter:- Instance of SparkSession, Input path and output path.
+   */
   def processData(spark: SparkSession, inputPath: String, outputPath: String) = {
     
   //Raw DataFrame schema using StructType

@@ -38,11 +38,14 @@ For this project, we will need four dimension tables and one fact table. They ar
  ![04ccb28b-37a3-4c38-ac7a-1cd556327670-Dimension Model](https://user-images.githubusercontent.com/30123312/147868891-138d700c-d63b-4d9b-8257-fb63ba1e3b49.jpg)
  
  
-#Environment Used:
+# Environment Used:
 1. Hadoop version : 2.10.1
 2. Java Version: 1.8.0
 3. Eclipse Version: 2019-12(4.14.0)
 4. Spark Version: 2.4.7
 5. Scala Version: 2.11.0
 6. Sqoop Version: 1.4.7
+
+# Submiting job to spark submit in cluser mode:
+spark-submit --class ATM_ETL --master yarn --deploy-mode cluster atmETL.jar /user/itv000943/atm/atmData.csv /user/itv000943/atmETL_output
 

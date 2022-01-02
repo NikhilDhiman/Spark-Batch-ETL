@@ -50,11 +50,24 @@ For this project, we will need four dimension tables and one fact table. They ar
 spark-submit --class ATM_ETL --master yarn --deploy-mode cluster atmETL.jar /user/itv000943/atm/atmData.csv /user/itv000943/atmETL_output
 
 # Loading data to MySQL using Sqoop:
-creating Location dinemsion Table:
+Creating Location dinemsion Table:
 
 create table itv000943_Din_Location( location_id Bigint, location varchar(50), streatname varchar(255), street_number int, zipcode int, lat Decimal(10,3), lon Decimal(10,3), Primary key (location_id));
     
 Loading Data: 
 
 sqoop export --connect "jdbc:mysql://ms.itversity.com:3306/retail_export" --username retail_user --password itversity --table itv000943_Din_Location --export-dir /user/itv000943/atmETL_output/ATM_Data_location/part-00000-3bf87172-d01d-4b7d-8633-937c0b3e6338-c000.csv --fields-terminated-by ","
+
+Creating ATM dinemsion Table:
+
+create table itv000943_Din_Atm(atm_id BigInt, atm_number varchar(20), atm_manufacturer varchar(50), atm_location_id Bigint, Primary key(atm_id), Foreign key (atm_location_id) references itv000943_Din_Location (location_id));
+
+Loading Data:
+
+sqoop export --connect "jdbc:mysql://ms.itversity.com:3306/retail_export" --username retail_user --password itversity --table itv000943_Din_Atm --export-dir /user/itv000943/atmETL_output/ATM_Data_atm/part-00000-2359f5a6-231e-4033-a4b8-e305534e3a1d-c000.csv --fields-terminated-by ","
+
+
+Creating Date dinemsion Table:
+
+create table itv000943_Din_Date(date_id Bigint, full_date_time Timestamp, year int, month varchar(20), day int, hour int, weekday varchar(20), Primary key (date_id));
 

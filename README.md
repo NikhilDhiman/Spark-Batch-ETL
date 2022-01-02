@@ -1,4 +1,4 @@
-# Spark-Batch-ETL
+# Spark Batch ETL using Scala and Sqoop
  Spark batch ETL pipeline to read data from HDFS, transform and load it into target dimensions and facts on MYSQL
  
  # Broadly following task was performed on this project-

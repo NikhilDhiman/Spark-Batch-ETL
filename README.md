@@ -71,3 +71,22 @@ Creating Date dinemsion Table:
 
 create table itv000943_Din_Date(date_id Bigint, full_date_time Timestamp, year int, month varchar(20), day int, hour int, weekday varchar(20), Primary key (date_id));
 
+Loading Data:
+
+sqoop export --connect "jdbc:mysql://ms.itversity.com:3306/retail_export" --username retail_user --password itversity --table itv000943_Din_Date --export-dir /user/itv000943/atmETL_output/ATM_Data_date/part-00000-2359f5a6-231e-4033-a4b8-e305534e3a1d-c000.csv --fields-terminated-by ","
+
+Creating card type dinemsion Table:
+
+create table itv000943_Din_Card_Type(card_type_it Bigint, card_tpye varchar(20), end_dt Timestamp, act_ind boolean, Primary key (card_type_it));
+
+Loading Data:
+
+sqoop export --connect "jdbc:mysql://ms.itversity.com:3306/retail_export" --username retail_user --password itversity --table itv000943_Din_Card_Type --export-dir /user/itv000943/atmETL_output/ATM_Data_card/part-00000-2359f5a6-231e-4033-a4b8-e305534e3a1d-c000.csv --fields-terminated-by ","
+
+Creating ATM transaction fact Table:
+
+create table itv000943_Fact_ATM_Trans(trans_id Bigint, atm_id Bigint, weather_loc_id Bigint, date_it Bigint, card_type_id Bigint, atm_status varchar(20), currency varchar(10), service varchar(20), transaction_amout double(10,3), message_code varchar(255), message_test varchar(255), rain_3h decimal(10,3), clouds_all int, weather_id bigint, weather_main varchar(50), weather_description varchar(255), Primary key (trans_id), foreign key (weather_loc_id) references itv000943_Din_Location (location_id), foreign key (atm_id) references itv000943_Din_Atm (atm_id), foreign key (date_id) references itv000943_Din_Date (date_id), foreign key (card_type_id) references itv000943_Din_Card_Type (card_type_it));
+
+Loading Data:
+
+sqoop export --connect "jdbc:mysql://ms.itversity.com:3306/retail_export" --username retail_user --password itversity --table itv000943_Fact_ATM_Trans --export-dir /user/itv000943/atmETL_output/ATM_Data_fact/part-00000-2359f5a6-231e-4033-a4b8-e305534e3a1d-c000.csv --fields-terminated-by ","

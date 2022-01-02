@@ -24,7 +24,7 @@ Spar Nord Bank has published this dataset at Kaggle under Database Contents Lice
 Link to dataset:- https://www.kaggle.com/sparnord/danish-atm-transactions
 
 # Target Dimension Model
-For this project, you will need four dimension tables and one fact table. They are as follows:
+For this project, we will need four dimension tables and one fact table. They are as follows:
 1. ATM dimension - This dimension will have the data related to the various ATMs present in the dataset along with the ATM number(ATM ID in the original dataset), ATM manufacturer and a reference to the ATM location and is very important for solving analytical queries related where ATM data will be used.
 
 2. Location dimension - This is a very important dimension containing all the location data including location name, street name, street number, zip code and even the latitude and longitude. This information will be very important for solving problems related to the particular location at which a transaction took place and can help banks in things like pinpointing locations where ATMs where demand is higher as compared to other locations. Combined with weather data in the transaction table, this can be used to further do analysis such as how weather affects the demand at ATMs at a particular location.
@@ -32,7 +32,17 @@ For this project, you will need four dimension tables and one fact table. They a
 3. Date dimension - This is another very important dimension which is almost always present where data such as transactional data is being dealt with. This dimension includes fields such as the full date and time timestamp, year, month, day, hour as well as the weekday for a transaction. This all can help in analysing the transaction behaviour with respect to the time at which the transaction took place and also how the transaction activity varies between weekdays and weekends.
 
  4. Card type dimension - This dimension has the information about the particular card type with which a particular transaction took place. This can help in performing analysis on how the number of transactions varies with respect to each different card type.
-
- 5.Transaction fact - This is the actual fact table for the data set which contains all of the numerical data such as the currency of the transaction, service, transaction amount, message code and text as well as weather info such as description, weather id etc.
+ 
+ 5. Transaction fact - This is the actual fact table for the data set which contains all of the numerical data such as the currency of the transaction, service, transaction amount, message code and text as well as weather info such as description, weather id etc.
  
  ![04ccb28b-37a3-4c38-ac7a-1cd556327670-Dimension Model](https://user-images.githubusercontent.com/30123312/147868891-138d700c-d63b-4d9b-8257-fb63ba1e3b49.jpg)
+ 
+ 
+#Environment Used:
+1. Hadoop version : 2.10.1
+2. Java Version: 1.8.0
+3. Eclipse Version: 2019-12(4.14.0)
+4. Spark Version: 2.4.7
+5. Scala Version: 2.11.0
+6. Sqoop Version: 1.4.7
+

@@ -14,6 +14,7 @@ This dataset comprises around 2.5 million records of withdrawal data along with 
 The actual data set is divided into two part files, both amounting to about 503 MB in total. 
 There is also a data dictionary present along with the data set, which defines all of the 34 columns.
 This data set contains various types of transactional data as well as the weather data at the time of the transaction, such as:
+
 1.Transaction Date and Time: Year, month, day, weekday, hour
 2.Status of the ATM: Active or inactive
 3.Details of the ATM: ATM ID, manufacturer name along with location details such as longitude, latitude, street name, street number and zip code

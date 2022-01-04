@@ -16,9 +16,14 @@ There is also a data dictionary present along with the data set, which defines a
 This data set contains various types of transactional data as well as the weather data at the time of the transaction, such as:
 
 1.Transaction Date and Time: Year, month, day, weekday, hour
+
 2.Status of the ATM: Active or inactive
+
 3.Details of the ATM: ATM ID, manufacturer name along with location details such as longitude, latitude, street name, street number and zip code
-4.The weather of the area near the ATM during the transaction: Location of measurement such as longitude, latitude, city name along with the type of weather, temperature, pressure, wind speed, cloud and so on
+
+4.The weather of the area near the ATM during the transaction: Location of measurement such as longitude, latitude, city name along with the type of weather, 
+temperature, pressure, wind speed, cloud and so on
+
 5.Transaction details: Card type, currency, transaction/service type, transaction amount and error message (if any)
 
 Spar Nord Bank has published this dataset at Kaggle under Database Contents License (DbCL) v1.0 — Open Data Commons.

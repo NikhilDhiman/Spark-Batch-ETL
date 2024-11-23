@@ -240,5 +240,4 @@ object ATM_ETL {
     val format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
     format1.format(c.getTime)
   }
-
 }
